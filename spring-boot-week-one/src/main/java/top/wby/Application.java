@@ -12,8 +12,8 @@ public class Application {
         SpringApplication.run(Application.class, args);
 
         }
-    @GetMapping("/Hello")
-    public String hello() {
+    @GetMapping("/hello")
+    public String index() {
         return "Hello World!";
     }
     }
