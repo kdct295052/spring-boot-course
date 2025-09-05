@@ -12,8 +12,20 @@ public class MoodController {
     private String content;
     @Value("${my.mood.author}")
     private String author;
+    @Value("${my.feature.helloSwitch}")
+    private boolean feature;
+    @Value("${my.feature.closeMsg}")
+    private String closeMsg;
     @GetMapping("/mood")
     public String mood() {
         return "Today is " + today + " and the mood is " + content + " and the author is " + author;
+    }
+    @GetMapping("/feature")
+    public String feature() {
+        if ( feature){
+            return "interface is opening";
+        }else {
+            return closeMsg;
+        }
     }
 }

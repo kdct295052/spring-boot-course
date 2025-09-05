@@ -9,5 +9,13 @@ my:
     content: "Today is a bad day"
     author: "cowhorse"
   feature:
-    helloSwitch: true
+    helloSwitch: false
     closeMsg: "该接口正在维护，10分钟后再来"
+wby:
+  sms:
+      serverIp: app.cloopen.com
+      port: 8883
+      accountSId: 2c94811c9860a9c4019917b851f21db2
+      accountToken: bb64bfed68c64427ad91bf325a57de1a
+      appId: 2c94811c9860a9c4019917b853691db9
+      templateId: 1
