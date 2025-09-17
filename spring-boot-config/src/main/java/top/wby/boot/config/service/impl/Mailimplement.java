@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 import top.wby.boot.config.enums.ResultStatus;
 import top.wby.boot.config.model.Mail;
 import top.wby.boot.config.service.MailService;
+
+import java.nio.charset.StandardCharsets;
+
 @Service
 public class Mailimplement implements MailService {
     @Value("${spring.mail.username}")
@@ -34,10 +37,10 @@ public class Mailimplement implements MailService {
 
     @Override
     public ResultStatus sendHtmlEmail(Mail mail) {
-        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
-        MimeMessageHelper headers ;
+
         try {
-            headers=new MimeMessageHelper(mimeMessage ,true);
+            MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+            MimeMessageHelper headers =new MimeMessageHelper(mimeMessage ,false, StandardCharsets.UTF_8.name());
             headers.setFrom(from);
             headers.setTo(mail.getTo());
             headers.setSubject(mail.getSubject());
