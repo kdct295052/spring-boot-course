@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "wby.sms")
 public class CloopenConfig {
     private String serverIp;
-    private  String port;
+    private String port;
     private String accountSId;
     private String accountToken;
     private String appId;
