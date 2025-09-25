@@ -1,20 +1,49 @@
-
+#
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/mp_demo?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+#    username: root
+#    password: 123456
+#
+#
+#mybatis-plus:
+#  configuration:
+#    map-underscore-to-camel-case: true # 数据库字段下划线转驼峰
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # SQL日志输出
+#  global-config:
+#    db-config:
+#      logic-delete-field: deleted # 逻辑删除字段
+#      logic-delete-value: 1 # 删除标识值
+#      logic-not-delete-value: 0 # 未删除标识值
+#server:
+#  port: 8080
+#  servlet:
+#    context-path: /api
+#logging:
+#  level:
+#    root: info
+#    top.wby: debug
+#  file:
+#    name: /var/log/myapp/myapp.log
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mp_demo?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
-    username: root
-    password: 123456
-
-
+  profiles:
+    active: dev
 mybatis-plus:
   configuration:
-    map-underscore-to-camel-case: true # 数据库字段下划线转驼峰
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # SQL日志输出
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
-      logic-delete-field: deleted # 逻辑删除字段
-      logic-delete-value: 1 # 删除标识值
-      logic-not-delete-value: 0 # 未删除标识值
-server:
-  port: 8080
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      insert-strategy: not_null
+      update-strategy: not_null
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: top.wby.entity
+logging:
+  level:
+    top.wby.boot.mp: debug
+    com.baomidou.mybatisplus: debug

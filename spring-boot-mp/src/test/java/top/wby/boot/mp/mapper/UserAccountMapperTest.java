@@ -23,7 +23,7 @@ class UserAccountMapperTest {
         userAccount.setNickname("user0099");
         userAccount.setEmail("user002@163.com");
         userAccount.setPhone("12345678901");
-        userAccount.setStatus(true);
+        userAccount.setStatus(1);
         int row = userAccountMapper.insert(userAccount);
         assertEquals(1, row);
     }
@@ -35,7 +35,7 @@ class UserAccountMapperTest {
         userAccount.setNickname("user0023");
         userAccount.setEmail("user001@163.com");
         userAccount.setPhone("12345678901");
-        userAccount.setStatus(true);
+        userAccount.setStatus(1);
         int row = userAccountMapper.updateById(userAccount);
         assertEquals(1, row);
     }
